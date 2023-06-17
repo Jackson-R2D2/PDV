@@ -3,7 +3,7 @@
 
 <div><img src="https://github.com/Jackson-R2D2/PDV/assets/127449144/40ae09b7-a9ab-497e-942e-3aea88b64ca4.png" width="450px" height="300px">
 <img src="https://github.com/Jackson-R2D2/PDV/assets/127449144/736ffb09-58fb-4fba-a859-8fbde3598bad.png" width="350px" height="300px">
-<img src="https://github.com/Jackson-R2D2/PDV/assets/127449144/8e402521-c4d2-4d24-b671-7a7ed6b71c49.png" width="450px" height="300px"></div
+<img src="https://github.com/Jackson-R2D2/PDV/assets/127449144/8e402521-c4d2-4d24-b671-7a7ed6b71c49.png" width="450px" height="300px"></div>
 
 # Descrisão
 Aplicativo desenvolvido em python, kivy e kivyMD<br>
@@ -11,7 +11,7 @@ O aplicativo permite adicionar produtos no banco de dados local, visualizar este
 
 # :hammer: Funcionalidades do projeto
 
-- `Funcionalidade registrar produto`: Permite que o usuário adicioanr um produto no banco de dados.
+- `Funcionalidade registrar produto`: Permite que o usuário adicione um produto no banco de dados.
 - `Funcionalidade visualizar todos os produtos`: Permite visualizar todos os produtos registrados em uma tabela.
 - `Funcionalidade sistema de venda`: Uma interface que permite realizar a venda de um produto ou produtos, ou até mesmo cancelar uma venda.
 
