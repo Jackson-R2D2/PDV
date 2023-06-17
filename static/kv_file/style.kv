@@ -1,0 +1,467 @@
+#: import utils kivy.utils
+#: import SlideTransition kivy.uix.screenmanager.SlideTransition
+
+<Home>:
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        FloatLayout:
+            size_hint: (1, 0.15)
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: (1, None)
+                pos_hint: {'top': 0.85}
+                height: 60
+                canvas.before:
+                    Color:
+                        rgba: (1,1,1,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                MDRectangleFlatButton:
+                    line_color: "black"
+                    size_hint: (None, None)
+                    width: 80
+                    height: 90
+                    on_release: 
+                        app.root.transition = SlideTransition(duration = 0)
+                        app.root.current = 'PDV'
+                    Image:
+                        source: 'static/images/profits.png'
+                        pos: (100, 100)
+                    FloatLayout:
+                        Label:
+                            text: 'VENDAS'
+                            font_size: 13
+                            color: (62/255,174/255,1/255,1)
+                            pos_hint: {'top': 0.18, 'x': 0}
+                MDRectangleFlatButton:
+                    line_color: "black"
+                    size_hint: (None, None)
+                    width: 80
+                    height: 90
+                    on_release: 
+                        app.root.transition = SlideTransition(duration = 0)
+                        app.root.current = 'Form'
+                    Image:
+                        source: 'static/images/formularios-do-google.png'
+                        pos: (100, 100)
+                    FloatLayout:
+                        Label:
+                            text: 'REGISTRAR'
+                            font_size: 13
+                            color: (62/255,174/255,1/255,1)
+                            pos_hint: {'top': 0.18, 'x': 0}
+                MDRectangleFlatButton:
+                    line_color: "black"
+                    size_hint: (None, None)
+                    width: 80
+                    height: 90
+                    on_release: 
+                        app.root.transition = SlideTransition(duration = 0)
+                        app.root.current = 'ListProducts'
+                    Image:
+                        source: 'static/images/produtos.png'
+                        pos: (100, 100)
+                    FloatLayout:
+                        Label:
+                            text: 'PRODUTOS'
+                            font_size: 13
+                            color: (62/255,174/255,1/255,1)
+                            pos_hint: {'top': 0.18, 'x': 0}
+                MDRectangleFlatButton:
+                    line_color: "black"
+                    size_hint: (None, None)
+                    width: 80
+                    height: 90
+                    on_press: root.exit_alert_dialog()
+                    Image:
+                        source: 'static/images/perto.png'
+                        pos: (100, 100)
+                    FloatLayout:
+                        Label:
+                            text: 'FECHAR'
+                            font_size: 13
+                            color: (62/255,174/255,1/255,1)
+                            pos_hint: {'top': 0.18, 'x': 0}
+        Image:
+            source: 'static/images/Untitled.xcf'
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+        FloatLayout:
+            size_hint: (1, 0.2)
+            Label:
+                text: 'SISTEMA PDV'
+                font_size: 60
+                color: (62/255,174/255,1/255,1)
+                pos_hint: {'x': 0, 'top': 1.20}
+
+        Label:
+            text: 'Sistema PDV: version 1.0'
+            color: (1,0,0,1)
+            background_color: (52/255,235/255,1/255,1)
+            size_hint: (1, None)
+            halign: 'center'
+            color: (1,1,1,1)
+            height: 16
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+<PointOfSale>:
+    canvas.before:
+        Color:  
+            rgba: (222/255, 222/255, 222/255, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        spacing: -500
+
+        FloatLayout:
+            size_hint: (1, None)
+
+            Label:
+                text: "DESCRISÃO"
+                bold: True
+                font_size: 30
+                color: utils.get_color_from_hex("#70cb59")
+                pos_hint: {'y': 0.20}
+            Label:
+                id: field_description
+                text_size: self.size
+                font_name: "static/font_style/Montserrat-VariableFont_wght.ttf"
+                bold: True
+                color: (0, 0, 0, 1)
+                font_size: 43
+                halign: "left"
+                size_hint: (0.97, 0.70)
+                pos_hint: {'y': -0.20, 'x': 0.014}
+                canvas.before:
+                    Color:  
+                        rgba: (1, 1, 1, 1)
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10]
+        
+        GridLayout:
+            id: main_grid
+            cols: 2
+            size_hint: (1, 0.15)
+
+            BoxLayout:
+                orientation: "vertical"
+                size_hint: (None, 1)
+                width: 550
+                padding: (25, 520, 0, 150)
+
+                BoxLayout:
+                    orientation: "vertical"
+                    spacing: 2
+                    size_hint: (1, None)
+
+                    Label:
+                        pos_hint: {'x': 0.034}
+                        text_size: self.size
+                        text: "CÓDIGO DE BARRAS"
+                        halign: "left"
+                        bold: True
+                        font_size: 25
+                        color: utils.get_color_from_hex("#70cb59")
+                    MDTextFieldRect:
+                        id: field_code_bar
+                        pos_hint: {'x': 0.034}
+                        size_hint: (0.80, 0.8)
+                        color: (0,0,0,1)
+                        font_size: 23
+                        helper_text: "Código de barras"
+                        font_name: "static/font_style/Montserrat-VariableFont_wght.ttf"
+                GridLayout:
+                    cols: 2
+                    spacing: 15
+                    padding: (7,0,0,0)
+                    
+                    BoxLayout:
+                        orientation: "vertical"
+                        spacing: 5
+
+                        Label:
+                            pos_hint: {'x': 0.034}
+                            text_size: self.size
+                            halign: "left"
+                            text: "QUANTIDADE DE ITENS"
+                            bold: True
+                            font_size: 23
+                            color: utils.get_color_from_hex("#70cb59")
+                        MDTextFieldRect:
+                            id: quantity_of_items
+                            pos_hint: {'x': 0.034}
+                            text_size: self.size
+                            size_hint: (0.90, None)
+                            height: 50
+                            pos_hint: {'x': 0.0355}
+                            font_name: "static/font_style/Montserrat-VariableFont_wght.ttf"
+                            color: (0, 0, 0, 1)
+                            font_size: 26
+                    
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: (1, None)
+                        height: 80
+
+                        Label:
+                            pos_hint: {'x': 0.034}
+                            text_size: self.size
+                            halign: "left"
+                            text: "VALOR UNITÁRIO"
+                            bold: True
+                            font_size: 23
+                            color: utils.get_color_from_hex("#70cb59")
+                        Label:
+                            id: unitary_value
+                            pos_hint: {'x': 0.034}
+                            text_size: self.size
+                            size_hint: (0.72, None)
+                            height: 50
+                            font_name: "static/font_style/Montserrat-VariableFont_wght.ttf"
+                            color: (0, 0, 0, 1)
+                            font_size: 39
+                            halign: "left"
+                            canvas.before:
+                                Color:  
+                                    rgba: (1, 1, 1, 1)
+                                RoundedRectangle:
+                                    size: self.size
+                                    pos: self.pos
+                                    radius: [10]
+                BoxLayout:
+                    orientation: "vertical"
+                    padding: (0,0,0,-10)
+
+                    Label:
+                        pos_hint: {'x': 0.034}
+                        text_size: self.size
+                        text: "TOTAL RECEBIDO"
+                        halign: "left"
+                        bold: True
+                        font_size: 25
+                        color: utils.get_color_from_hex("#70cb59")
+                    MDTextFieldRect:
+                        id: total_received
+                        pos_hint: {'x': 0.034}
+                        size_hint: (0.80, 1)
+                        color: (0,0,0,1)
+                        font_size: 24
+                        font_name: "static/font_style/Montserrat-VariableFont_wght.ttf"
+
+                BoxLayout:
+                    orientation: "vertical"
+                    padding: (0,0,0,-20)
+
+                    Label:
+                        pos_hint: {'x': 0.034}
+                        text_size: self.size
+                        text: "TOTAL DA COMPRA"
+                        halign: "left"
+                        bold: True
+                        font_size: 25
+                        color: utils.get_color_from_hex("#70cb59")
+                    Label:
+                        id: purchase_total
+                        pos_hint: {'x': 0.034}
+                        text_size: self.size
+                        size_hint: (0.80, None)
+                        height: 50
+                        font_name: "static/font_style/Montserrat-VariableFont_wght.ttf"
+                        color: (0, 0, 0, 1)
+                        font_size: 39
+                        halign: "left"
+                        canvas.before:
+                            Color:  
+                                rgba: (1, 1, 1, 1)
+                            RoundedRectangle:
+                                size: self.size
+                                pos: self.pos
+                                radius: [10]
+
+                BoxLayout:
+                    orientation: "vertical"
+                    padding: (0,0,0,-30)
+
+                    Label:
+                        pos_hint: {'x': 0.034}
+                        text_size: self.size
+                        text: "TROCO"
+                        halign: "left"
+                        bold: True
+                        font_size: 25
+                        color: utils.get_color_from_hex("#70cb59")
+                    Label:
+                        id: money_change
+                        pos_hint: {'x': 0.034}
+                        text_size: self.size
+                        size_hint: (0.80, None)
+                        height: 50
+                        font_name: "static/font_style/Montserrat-VariableFont_wght.ttf"
+                        color: (0, 0, 0, 1)
+                        font_size: 39
+                        halign: "left"
+                        canvas.before:
+                            Color:  
+                                rgba: (1, 1, 1, 1)
+                            RoundedRectangle:
+                                size: self.size
+                                pos: self.pos
+                                radius: [10]
+    MDRaisedButton:
+        text: 'SAIR'
+        text_color: 'white'
+        md_bg_color: 'red'
+        pos_hint: {'x': 0.005, 'y':0.05}
+        on_release: 
+            app.root.transition = SlideTransition(duration = 0)
+            app.root.current = 'Home'                    
+
+<Form>:
+    canvas.before:
+        Color:  
+            rgba: (222/255, 222/255, 222/255, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    BoxLayout:
+        id: box_layout
+        orientation: 'vertical'
+        size: root.width, root.height
+        size_hint: (0.50, 0.70)
+        pos_hint: {'x': 0.25, 'y': 0.10}
+        padding: 25
+        spacing: 12
+        canvas.before:
+            Color:  
+                rgba: (0,0,0,0.5)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos[0]-2, self.pos[1]+2
+                radius: [10]
+            Color:
+                rgba: (255/255, 255/255, 255/255, 1)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [10]
+        MDTextField:
+            id: button_code_bar
+            helper_text: "There will always be a mistake"
+            helper_text_mode: "on_error"
+            hint_text: "Código de barras"
+            mode: "rectangle"
+            line_color_focus: "green"
+            pos_hint: {'y': 0.40}
+        MDTextField:
+            id: button_product
+            helper_text: "There will always be a mistake"
+            helper_text_mode: "on_error"
+            hint_text: "Nome do produto"
+            mode: "rectangle"
+            line_color_focus: "green"
+            pos_hint: {'y': 0.40}
+        MDTextField:
+            id: button_price
+            helper_text: "There will always be a mistake"
+            helper_text_mode: "on_error"
+            hint_text: "Preço"
+            mode: "rectangle"
+            line_color_focus: "green"
+            pos_hint: {'y': 0.40}
+        MDTextField:
+            id: button_stock
+            helper_text: "There will always be a mistake"
+            helper_text_mode: "on_error"
+            hint_text: "Quantidade no estoque"
+            mode: "rectangle"
+            line_color_focus: "green"
+            pos_hint: {'y': 0.40}
+        MDTextField:
+            id: button_type_product
+            helper_text: "There will always be a mistake"
+            helper_text_mode: "on_error"
+            hint_text: "Tipo do produto"
+            mode: "rectangle"
+            line_color_focus: "green"
+            pos_hint: {'y': 0.40}
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+            MDRaisedButton:
+                text: 'SAIR'
+                text_color: 'white'
+                md_bg_color: 'red'
+                on_release: 
+                    app.root.transition = SlideTransition(duration = 0)
+                    app.root.current = 'Home'
+            MDRaisedButton:
+                text: 'CONFIRMAR'
+                text_color: 'white'
+                md_bg_color: 'green'
+                on_press: root.save_form()
+
+    Label:
+        text: 'Cadastro de Produtos'
+        font_size: 65
+        color: (62/255,174/255,1/255,1)
+        pos_hint: {'y': 0.40}
+
+<ListProducts>:
+    FloatLayout:
+        MDRaisedButton:
+            text: 'SAIR'
+            md_bg_color: 'red'
+            text_color: 'white'
+            pos_hint: {'top': 0.09}
+            on_release:
+                app.root.transition = SlideTransition(duration = 0)
+                app.root.current = 'Home' 
+
+<MDDialogContent@BoxLayout>:
+    orientation: "vertical"
+    spacing: "18dp"
+    size_hint_y: None
+    height: 300
+
+    MDTextField:
+        id: button_code_bar
+        hint_text: "Código de barras"
+        helper_text: "There will always be a mistake"
+        helper_text_mode: "on_error"
+        mode: "fill"
+    MDTextField:
+        id: button_product
+        hint_text: "Nome do produto"
+        helper_text: "There will always be a mistake"
+        helper_text_mode: "on_error"
+        mode: "fill"               
+    MDTextField:
+        id: button_price
+        hint_text: "Preço"
+        helper_text: "There will always be a mistake"
+        helper_text_mode: "on_error"
+        mode: "fill"  
+    MDTextField:
+        id: button_stock
+        hint_text: "Quantidade no estoque"
+        helper_text: "There will always be a mistake"
+        helper_text_mode: "on_error"
+        mode: "fill"  
+    MDTextField:
+        id: button_type_product
+        hint_text: "Tipo"
+        helper_text: "There will always be a mistake"
+        helper_text_mode: "on_error"
+        mode: "fill"  
